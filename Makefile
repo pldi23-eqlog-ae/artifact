@@ -1,9 +1,6 @@
-# if we want to invoke the docker from the Makefile, this is useful
-go=docker run --rm -it -v $(pwd):/usr/src/pldi23-eqlog-artifact
-
 .PHONY: test
 test:
-	cd egg-smol && cargo test --release
+	cd eqlog && cargo test --release
 
 # build: build-egg-smol build-micro-benchmark build-steensgaard-analysis-benchmark
 
