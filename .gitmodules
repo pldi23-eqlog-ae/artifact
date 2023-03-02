@@ -7,3 +7,6 @@
 [submodule "pointer-analysis-benchmark"]
 	path = pointer-analysis-benchmark
 	url = https://github.com/pldi23-eqlog-ae/pointer-analysis-benchmark
+[submodule "herbie-eqlog"]
+	path = herbie-eqlog
+	url = git@github.com:pldi23-eqlog-ae/herbie-eqlog
