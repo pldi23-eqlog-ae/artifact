@@ -4,3 +4,6 @@
 [submodule "micro-benchmarks"]
 	path = micro-benchmarks
 	url = https://github.com/pldi23-eqlog-ae/micro-benchmarks
+[submodule "pointer-analysis-benchmark"]
+	path = pointer-analysis-benchmark
+	url = https://github.com/pldi23-eqlog-ae/pointer-analysis-benchmark
