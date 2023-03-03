@@ -12,7 +12,7 @@ This artifact provides support for the following claims made in the paper:
     `egg`'s "math" benchmark (Section 5.3).
 3. `EqLog` outperforms the `cclyzer++` pointer anaylsis 
     tool build on top of the `Souffle` Datalog system (Section 6.1).
-4. `EqLog` can replace `egg` as the equality saturation engine in the Herbie floating-point optimization tool.
+4. `EqLog` can replace `egg` as the equality saturation engine in the Herbie floating-point optimization tool, achieving similar accuracy performance.
 
 
 ## Artifact Layout
@@ -68,3 +68,8 @@ Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks.
 Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
 
 ### Claim #3
+
+
+### Claim #4
+
+Invoking `make herbie` will run the Herbie floating-point optimization tool, once with `EqLog` as the equality saturation engine and once with `egg` as the equality saturation engine. This may take more than an hour, and when it finishes, it will plots at `herbie-eqlog/egglogdata`. The `herbie-eqlog/egglogdata/errorhist.pdf` plot should look quite similar to Figure 11 in the paper, demonstrating the `EqLog` achieves similar performance to `egg`.

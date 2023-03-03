@@ -21,6 +21,9 @@ pointer-analysis-benchmark-small:
 pointer-analysis-benchmark:
 	cd pointer-analysis-benchmark && python3 run.py --build-egglog
 
+herbie:
+	cd herbie-eqlog && bash evalegglog.sh
+
 # build-steensgaard-analysis-benchmark
 # 	cd steensgaard-analysis-benchmark && cargo build --release
 

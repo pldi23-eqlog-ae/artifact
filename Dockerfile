@@ -50,9 +50,8 @@ COPY Makefile Makefile
 
 # RUN cd micro-benchmarks && cargo build --release
 
-# RUN cd herbie-eqlog && make install
-# RUN cd herbie-eqlog && cargo build --release --manifest-path=egg-herbie/Cargo.toml
-#RUN cd herbie-eqlog && make install
+RUN cd herbie-eqlog && make install
+RUN cd herbie-eqlog && cargo build --release --manifest-path=egg-herbie/Cargo.toml
 
 
 
