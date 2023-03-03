@@ -8,7 +8,7 @@ RUN apt-get install software-properties-common -y
 ## install racket
 RUN add-apt-repository ppa:plt/racket -y
 RUN apt update -y
-RUN apt-get install racket -y
+RUN apt-get install racket=8.6+ppa1-1~jammy1 -y
 RUN apt install curl -y
 ## install rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.66.1 -y
