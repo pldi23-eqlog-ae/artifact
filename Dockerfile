@@ -1,41 +1,21 @@
-FROM ubuntu:latest
+FROM --platform=linux/x86_64 racket/racket:8.6
 ENV PROJECT_NAME=eqlog
 SHELL ["bash", "-c"]
 
-# INSTALL DEPENDENCIES
-RUN apt update && apt-get install -y \
-    software-properties-common \
-    wget curl \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    python3-pip \
-    bison \
-    build-essential \
-    clang \
-    cmake \
-    doxygen \
-    flex \
-    g++ \
-    git \
-    libffi-dev \
-    libncurses5-dev \
-    libsqlite3-dev \
-    make \
-    mcpp \
-    sqlite \
-    zlib1g-dev \
-    && pip3 install matplotlib
-## install racket
-RUN add-apt-repository ppa:plt/racket -y && apt update -y && apt-get install racket=8.6+ppa1-1~jammy1 -y
+    wget \
+    software-properties-common
+
+# install souffle
+RUN wget --no-check-certificate https://github.com/souffle-lang/souffle/releases/download/2.3/x86_64-ubuntu-2004-souffle-2.3-Linux.deb -O souffle.deb && \
+    apt-get install -y ./souffle.deb && rm souffle.deb && souffle --version
+
 ## install rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.66.1 -y
-## install souffle
-RUN wget https://github.com/souffle-lang/souffle/archive/refs/tags/2.3.tar.gz \
-    && tar -xf 2.3.tar.gz \
-    && cd souffle-2.3 \
-    && cmake -S . -B build \
-    && cmake --build build --target install \
-    && rm -rf 2.3.tar.gz souffle-2.3
+
 WORKDIR /usr/src/pldi23-eqlog-artifact
+
 ## envs
 ENV PATH="$PATH:/root/.cargo/bin"
 ENV CARGO_HOME=/usr/src/pldi23-eqlog-artifact/.cargo-docker
