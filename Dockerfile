@@ -33,18 +33,19 @@ RUN wget https://github.com/souffle-lang/souffle/archive/refs/tags/2.3.tar.gz \
     && tar -xf 2.3.tar.gz \
     && cd souffle-2.3 \
     && cmake -S . -B build \
-    && cmake --build build --target install
+    && cmake --build build --target install \
+    && rm -rf 2.3.tar.gz souffle-2.3
 WORKDIR /usr/src/pldi23-eqlog-artifact
-RUN wget https://github.com/souffle-lang/souffle/archive/refs/tags/2.3.tar.gz
 ## envs
 ENV PATH="$PATH:/root/.cargo/bin"
 ENV CARGO_HOME=/usr/src/pldi23-eqlog-artifact/.cargo-docker
 
 COPY eqlog eqlog
 RUN cd eqlog && cargo build --release
-# COPY micro-benchmarks micro-benchmarks
+
+COPY micro-benchmarks micro-benchmarks
 COPY pointer-analysis-benchmark pointer-analysis-benchmark
-# COPY herbie-eqlog herbie-eqlog
+COPY herbie-eqlog herbie-eqlog
 COPY Makefile Makefile
 
 # RUN cd micro-benchmarks && cargo build --release

@@ -15,8 +15,11 @@ micro-benchmark:
 	cd micro-benchmarks && cargo run --release -- --repeat 3 --iter-size 100 --csvfile benchmarks.csv
 	cd micro-benchmarks && python3 plot.py --no-viz --csvfile benchmarks.csv --pdffile benchmarks.pdf
 
+pointer-analysis-benchmark-small:
+	cd pointer-analysis-benchmark && python3 run.py --build-egglog --disable-naive --disable-buggy
+
 pointer-analysis-benchmark:
-	cd pointer-analysis-benchmark && python3 run.py --build-egglog --disable-naive --disable-buggy 
+	cd pointer-analysis-benchmark && python3 run.py --build-egglog
 
 # build-steensgaard-analysis-benchmark
 # 	cd steensgaard-analysis-benchmark && cargo build --release
