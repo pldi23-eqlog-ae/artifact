@@ -64,7 +64,7 @@ Among the tests run are `egg-smol/tests/path.egg`, a classic Datalog program to 
 
 ### Claim #2
 
-Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than an hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks`.
+Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than an hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks.pdf`.
 Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
 
 The generated plot may look slightly different than the submitted version.
@@ -79,6 +79,8 @@ Moreover, the detailed data shows that EqLog still explores a slightly larger pr
 
 ### Claim #3
 
+Invoking `make pointer-analysis-benchmark`  will build and run the Steensgaard analysis benchmark and compare against the Souffle baselines. This may take more than [TODO: insert time], and when it finishes, it will generate a plot at `pointer-analysis-benchmark/plot.pdf`.
+Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
 
 ### Claim #4
 

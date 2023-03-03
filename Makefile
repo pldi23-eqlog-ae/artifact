@@ -16,7 +16,7 @@ micro-benchmark:
 	cd micro-benchmarks && python3 plot.py --no-viz --csvfile benchmarks.csv --pdffile benchmarks.pdf
 
 pointer-analysis-benchmark-small:
-	cd pointer-analysis-benchmark && python3 run.py --build-egglog --disable-naive --disable-buggy
+	cd pointer-analysis-benchmark && python3 run.py --build-egglog --disable-naive --disable-buggy --csvfile benchmark_results_small.csv --pdffile plot_small.pdf
 
 pointer-analysis-benchmark:
 	cd pointer-analysis-benchmark && python3 run.py --build-egglog
