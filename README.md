@@ -64,11 +64,23 @@ Among the tests run are `egg-smol/tests/path.egg`, a classic Datalog program to 
 
 ### Claim #2
 
-Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than an hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks`.
+Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than an hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks.pdf`.
 Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
+
+The generated plot may look slightly different than the submitted version.
+This is because, during the deadline push, we disabled a fast-forwarding optimization for the BackOff scheduler when comparing with egg.
+For artifact evaluation, we implemented fast-forwarding for eqlog and reverted our changes to egg. 
+This should reflect a more accurate comparison using the default BackOff scheduler.
+Because of the fast-forwarding, egg and EqLogNI avoids searching for rules known to not produce any matches in certain cases (EqLog is able to avoid these cases any way thanks to the semi-naive evaluation).
+As a result, the curves for EqLogNI and egg in the new plot do not have the long horizontal segments (which means take a long time but make no progress).
+
+In the updated plot, our claim about EqLog and EqLogNI being faster than egg stills hold. 
+Moreover, the detailed data shows that EqLog still explores a slightly larger program space than EqLogNI and egg.
 
 ### Claim #3
 
+Invoking `make pointer-analysis-benchmark`  will build and run the Steensgaard analysis benchmark and compare against the Souffle baselines. This may take more than [TODO: insert time], and when it finishes, it will generate a plot at `pointer-analysis-benchmark/plot.pdf`.
+Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
 
 ### Claim #4
 
