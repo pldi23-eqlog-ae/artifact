@@ -11,3 +11,4 @@ perf.data*
 
 _scratch.egg
 *.log
+.cargo-docker
