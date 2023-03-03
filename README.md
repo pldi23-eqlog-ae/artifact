@@ -72,4 +72,6 @@ Alternatively, you can run `make micro-benchmark-small` to generate a plot for a
 
 ### Claim #4
 
-Invoking `make herbie` will run the Herbie floating-point optimization tool, once with `EqLog` as the equality saturation engine and once with `egg` as the equality saturation engine. This may take more than an hour, and when it finishes, it will plots at `herbie-eqlog/egglogdata`. The `herbie-eqlog/egglogdata/errorhist.pdf` plot should look quite similar to Figure 11 in the paper, demonstrating the `EqLog` achieves similar performance to `egg`.
+Invoking `make herbie` will run the Herbie floating-point optimization tool, once with `EqLog` as the equality saturation engine and once with `egg` as the equality saturation engine. This may take more than two hours, and when it finishes, it will generate plots at `herbie-eqlog/egglogdata`.
+
+Specifically, we claim that the `herbie-eqlog/egglogdata/errorhist.pdf` plot should look quite similar to Figure 11 in the paper, demonstrating the `EqLog` achieves similar performance to `egg`.

@@ -5,7 +5,8 @@ SHELL ["bash", "-c"]
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     wget \
-    software-properties-common
+    software-properties-common \
+    git
 
 # install souffle
 RUN wget --no-check-certificate https://github.com/souffle-lang/souffle/releases/download/2.3/x86_64-ubuntu-2004-souffle-2.3-Linux.deb -O souffle.deb && \
@@ -19,6 +20,7 @@ WORKDIR /usr/src/pldi23-eqlog-artifact
 ## envs
 ENV PATH="$PATH:/root/.cargo/bin"
 ENV CARGO_HOME=/usr/src/pldi23-eqlog-artifact/.cargo-docker
+ENV CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 COPY eqlog eqlog
 RUN cd eqlog && cargo build --release
