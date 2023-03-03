@@ -29,7 +29,8 @@ The other folders each containing supporting infrastructure and data for the eva
 The provided Dockerfile will supply the necessary dependencies to run the artifact. Run the following from this directory to be dropped into a Bash shell with all the dependencies installed.
 
 ```shell
-do docker 
+docker build -t pldi23-eqlog-artifact .
+docker run --name running-artifact --rm -itp 8080:8080 pldi23-eqlog-artifact:latest bash
 ```
 
 This may take a few minutes the first time, as it has to build the Docker image.
@@ -53,12 +54,17 @@ make
 
 You may inspect the `Makefile` to see the individual targets, but simply invoking `make` will generate everything needed to validate the claims.
 
+To view the generated plots, you can run `python3 -m http.server 8080 &` in the docker and visit `localhost:8080`, which allows you to view and download data and plots generated in your browser.
+
 ### Claim #1
 
-Invoking `make test` (as above) will build and run the `EqLog` tool. 
+Invoking `make test` (as above) will build and run the `EqLog` tool.
 
 Among the tests run are `egg-smol/tests/path.egg`, a classic Datalog program to compute reachability in a graph, and `egg-smol/tests/eqsat-basic`, a simple equality saturation program to prove two arithmetic expressions equivalent.
 
 ### Claim #2
+
+Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than an hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks`.
+Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
 
 ### Claim #3
