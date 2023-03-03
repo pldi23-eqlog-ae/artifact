@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test build-eqlog micro-benchmark-small micro-benchmark pointer-analysis-benchmark
 test:
 	cd eqlog && cargo test --release
 
@@ -14,6 +14,9 @@ micro-benchmark-small:
 micro-benchmark:
 	cd micro-benchmarks && cargo run --release -- --repeat 3 --iter-size 100 --csvfile benchmarks.csv
 	cd micro-benchmarks && python3 plot.py --no-viz --csvfile benchmarks.csv --pdffile benchmarks.pdf
+
+pointer-analysis-benchmark:
+	cd pointer-analysis-benchmark && python3 run.py --build-egglog --disable-naive --disable-buggy 
 
 # build-steensgaard-analysis-benchmark
 # 	cd steensgaard-analysis-benchmark && cargo build --release
