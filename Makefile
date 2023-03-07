@@ -2,8 +2,6 @@
 test:
 	cd eqlog && cargo test --release
 
-# build: build-egg-smol build-micro-benchmark build-steensgaard-analysis-benchmark
-
 build-eqlog:
 	cd eqlog && cargo build --release
 
@@ -16,13 +14,13 @@ micro-benchmark:
 	cd micro-benchmarks && python3 plot.py --no-viz --csvfile benchmarks.csv --pdffile benchmarks.pdf
 
 pointer-analysis-benchmark-small:
-	cd pointer-analysis-benchmark && python3 run.py --build-egglog --disable-naive --disable-buggy --csvfile benchmark_results_small.csv --pdffile plot_small.pdf
+	cd pointer-analysis-benchmark && python3 run.py --build-eqlog --disable-naive --disable-buggy --csvfile benchmark_results_small.csv --pdffile plot_small.pdf
 
 pointer-analysis-benchmark:
-	cd pointer-analysis-benchmark && python3 run.py --build-egglog
+	cd pointer-analysis-benchmark && python3 run.py --build-eqlog
 
 herbie:
-	cd herbie-eqlog && bash evalegglog.sh
+	cd herbie-eqlog && bash evaleqlog.sh
 
 # build-steensgaard-analysis-benchmark
 # 	cd steensgaard-analysis-benchmark && cargo build --release

@@ -60,12 +60,12 @@ To view the generated plots, you can run `python3 -m http.server 8080 &` in the 
 
 Invoking `make test` (as above) will build and run the `EqLog` tool.
 
-Among the tests run are `egg-smol/tests/path.egg`, a classic Datalog program to compute reachability in a graph, and `egg-smol/tests/eqsat-basic`, a simple equality saturation program to prove two arithmetic expressions equivalent.
+Among the tests run are `eqlog/tests/path.egg`, a classic Datalog program to compute reachability in a graph, and `eqlogl/tests/eqsat-basic`, a simple equality saturation program to prove two arithmetic expressions equivalent.
 
 ### Claim #2
 
-Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than an hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks.pdf`.
-Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
+Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than two hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks.pdf`.
+Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark at `micro-benchmarks/benchmarks-small.pdf`, which should finish within seconds.
 
 The generated plot may look slightly different than the submitted version.
 This is because, during the deadline push, we disabled a fast-forwarding optimization for the BackOff scheduler when comparing with egg.
@@ -80,10 +80,11 @@ Moreover, the detailed data shows that EqLog still explores a slightly larger pr
 ### Claim #3
 
 Invoking `make pointer-analysis-benchmark`  will build and run the Steensgaard analysis benchmark and compare against the Souffle baselines. This may take more than [TODO: insert time], and when it finishes, it will generate a plot at `pointer-analysis-benchmark/plot.pdf`.
-Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark, which should finish within seconds.
+Alternatively, you can run `make pointer-analysis-benchmark-small` to generate a plot for a smaller pointer-analysis benchmark at `pointer-analysis-benchmark/plot_small.pdf`,
+which should finish within seconds.
 
 ### Claim #4
 
-Invoking `make herbie` will run the Herbie floating-point optimization tool, once with `EqLog` as the equality saturation engine and once with `egg` as the equality saturation engine. This may take more than two hours, and when it finishes, it will generate plots at `herbie-eqlog/egglogdata`.
+Invoking `make herbie` will run the Herbie floating-point optimization tool, once with `EqLog` as the equality saturation engine and once with `egg` as the equality saturation engine. This may take more than two hours, and when it finishes, it will generate plots at `herbie-eqlog/eqlogdata`.
 
-Specifically, we claim that the `herbie-eqlog/egglogdata/errorhist.pdf` plot should look quite similar to Figure 11 in the paper, demonstrating the `EqLog` achieves similar performance to `egg`.
+Specifically, we claim that the `herbie-eqlog/eqlogdata/errorhist.pdf` plot should look quite similar to Figure 11 in the paper, demonstrating the `EqLog` achieves similar performance to `egg`.
