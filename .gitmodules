@@ -10,3 +10,6 @@
 [submodule "herbie-eqlog"]
 	path = herbie-eqlog
 	url = git@github.com:pldi23-eqlog-ae/herbie-eqlog
+[submodule "eqlog-herbie-tweaks"]
+	path = eqlog-herbie-tweaks
+	url = https://github.com/pldi23-eqlog-ae/eqlog-herbie-tweaks
