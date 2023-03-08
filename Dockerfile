@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     software-properties-common \
     git \
-    python3-matplotlib
+    python3-pip && \
+    pip3 install matplotlib
 
 # install souffle
 RUN wget --no-check-certificate https://github.com/souffle-lang/souffle/releases/download/2.3/x86_64-ubuntu-2004-souffle-2.3-Linux.deb -O souffle.deb && \

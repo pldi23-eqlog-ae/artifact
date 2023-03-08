@@ -26,6 +26,8 @@ The other folders each containing supporting infrastructure and data for the eva
 
 ## Installing and running the artifact
 
+NOTE: We STRONGLY recommend using an x86 machine to run our artifact.  Although our artifact can be run on machines with ARM architecture, we provide no promises on benchmark results.
+
 The provided Dockerfile will supply the necessary dependencies to run the artifact. Run the following from this directory to be dropped into a Bash shell with all the dependencies installed.
 
 ```shell
@@ -33,7 +35,7 @@ docker build -t pldi23-eqlog-artifact .
 docker run --name running-artifact --rm -itp 8080:8080 pldi23-eqlog-artifact:latest bash
 ```
 
-This may take a few minutes the first time, as it has to build the Docker image. We recommend using an x86 machine to run our artifact.
+This may take a few minutes the first time, as it has to build the Docker image.
 
 Once in the container shell, you can then run invoke the `Makefile` to run the various parts of the artifact. To just "kick the tires" and ensure things are working, run the following to just build and test the `EqLog` tool:
 
