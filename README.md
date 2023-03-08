@@ -68,13 +68,13 @@ Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks.
 Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark at `micro-benchmarks/benchmarks-small.pdf`, which should finish within seconds.
 
 The generated plot may look slightly different than Figure 7 in the submitted version.
-This is because, during the deadline push, we disabled a fast-forwarding optimization for the BackOff scheduler when comparing with egg.
-For artifact evaluation, we implemented fast-forwarding for eqlog and reverted our changes to egg. 
+This is because, for the submitted version, we disabled a fast-forwarding optimization for the BackOff scheduler when comparing with egg.
+For the revised version (this artifact), we implemented fast-forwarding for eqlog and reverted our changes to egg. 
 This should reflect a more accurate comparison using the default BackOff scheduler.
 Because of the fast-forwarding, egg and EqLogNI avoids searching for rules known to not produce any matches in certain cases (EqLog is able to avoid these cases any way thanks to the semi-naive evaluation).
 As a result, the curves for EqLogNI and egg in the new plot do not have the long horizontal segments (which means take a long time but make no progress).
 
-In the updated plot, our claim about EqLog and EqLogNI being faster than egg stills hold. 
+In the updated plot, our claim about EqLog and EqLogNI being faster than egg stills holds.
 Moreover, the detailed data shows that EqLog still explores a slightly larger program space than EqLogNI and egg.
 
 ### Claim #3
