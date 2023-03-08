@@ -29,6 +29,7 @@ RUN cd eqlog && cargo build --release
 COPY micro-benchmarks micro-benchmarks
 COPY pointer-analysis-benchmark pointer-analysis-benchmark
 COPY herbie-eqlog herbie-eqlog
+COPY eqlog-herbie-tweaks eqlog-herbie-tweaks
 
 # RUN cd micro-benchmarks && cargo build --release
 

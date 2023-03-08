@@ -21,9 +21,3 @@ pointer-analysis-benchmark:
 
 herbie:
 	cd herbie-eqlog && bash evaleqlog.sh
-
-# build-steensgaard-analysis-benchmark
-# 	cd steensgaard-analysis-benchmark && cargo build --release
-
-# micro-benchmarks: build-micro-benchmark
-

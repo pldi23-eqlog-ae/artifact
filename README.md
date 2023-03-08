@@ -33,15 +33,13 @@ docker build -t pldi23-eqlog-artifact .
 docker run --name running-artifact --rm -itp 8080:8080 pldi23-eqlog-artifact:latest bash
 ```
 
-This may take a few minutes the first time, as it has to build the Docker image.
+This may take a few minutes the first time, as it has to build the Docker image. We recommend using an x86 machine to run our artifact.
 
 Once in the container shell, you can then run invoke the `Makefile` to run the various parts of the artifact. To just "kick the tires" and ensure things are working, run the following to just build and test the `EqLog` tool:
 
 ```shell
 make test
 ```
-
-This command make take a few minutes the first time, as it must build the `EqLog` tool.
 
 ## Validating Claims
 
@@ -67,7 +65,7 @@ Among the tests run are `eqlog/tests/path.egg`, a classic Datalog program to com
 Invoking `make micro-benchmark`  will build and run the `math` micro-benchmarks. This may take more than two hour, and when it finishes, it will generate a plot at `micro-benchmarks/benchmarks.pdf`.
 Alternatively, you can run `make micro-benchmark-small` to generate a plot for a smaller micro-benchmark at `micro-benchmarks/benchmarks-small.pdf`, which should finish within seconds.
 
-The generated plot may look slightly different than the submitted version.
+The generated plot may look slightly different than Figure 7 in the submitted version.
 This is because, during the deadline push, we disabled a fast-forwarding optimization for the BackOff scheduler when comparing with egg.
 For artifact evaluation, we implemented fast-forwarding for eqlog and reverted our changes to egg. 
 This should reflect a more accurate comparison using the default BackOff scheduler.
@@ -79,9 +77,10 @@ Moreover, the detailed data shows that EqLog still explores a slightly larger pr
 
 ### Claim #3
 
-Invoking `make pointer-analysis-benchmark`  will build and run the Steensgaard analysis benchmark and compare against the Souffle baselines. This may take more than [TODO: insert time], and when it finishes, it will generate a plot at `pointer-analysis-benchmark/plot.pdf`.
-Alternatively, you can run `make pointer-analysis-benchmark-small` to generate a plot for a smaller pointer-analysis benchmark at `pointer-analysis-benchmark/plot_small.pdf`,
-which should finish within seconds.
+Invoking `make pointer-analysis-benchmark`  will build and run the Steensgaard analysis benchmark and compare against the Souffle baselines. This may take more than an hour, and when it finishes, it will generate a plot at `pointer-analysis-benchmark/plot.pdf`.
+Alternatively, you can run `make pointer-analysis-benchmark-small` to generate a plot for a smaller pointer-analysis benchmark at `pointer-analysis-benchmark/plot_small.pdf`, which should finish within minutes.
+
+The generated plot should look similar to Figure 8, showing EqLog is faster than all the Souffle baselines.
 
 ### Claim #4
 
